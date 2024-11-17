@@ -9,6 +9,10 @@ jobs:
   terraform:
     runs-on: ubuntu-latest  # GitHub-hosted runner with Ubuntu
 
+    permissions:
+      id-token: write  # Allow the GitHub runner to create the OIDC ID token for Azure authentication
+      contents: read   # Allow the GitHub runner to access the repository contents
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -18,24 +22,20 @@ jobs:
         with:
           terraform_version: "1.5.0"  # Use the latest stable version or your desired version
 
-      - name: Set up Azure CLI (for authentication)
-        uses: azure/setup-azure-cli@latest
-        with:
-          azure-cli-version: latest
-
-      - name: Azure Login
+      - name: Azure Login using OIDC
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          # DO NOT provide client-id, client-secret, or tenant-id here
+          enable-AzPSSession: true  # Optional: if you want to enable PowerShell session
 
       - name: Terraform Init
         run: terraform init
+        working-directory: .github/workflows  # Specify the location of your Terraform files
 
       - name: Terraform Plan
         run: terraform plan
+        working-directory: .github/workflows  # Specify the location of your Terraform files
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+        working-directory: .github/workflows  # Specify the location of your Terraform files
