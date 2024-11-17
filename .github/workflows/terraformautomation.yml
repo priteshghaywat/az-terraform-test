@@ -19,7 +19,7 @@ jobs:
           terraform_version: "1.5.0"  # Use the latest stable version or your desired version
 
       - name: Set up Azure CLI (for authentication)
-        uses: azure/azure-cli-action@v1
+        uses: azure/setup-azure-cli@v1
         with:
           azure-cli-version: latest
 
