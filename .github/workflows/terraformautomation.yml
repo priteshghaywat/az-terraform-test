@@ -3,11 +3,11 @@ name: Terraform Azure Deployment
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the main branch
+      - main  # Trigger the workflow when pushing to the 'main' branch
 
 jobs:
   terraform:
-    runs-on: ubuntu-latest  # GitHub-hosted runner for Ubuntu
+    runs-on: ubuntu-latest  # GitHub-hosted runner with Ubuntu
 
     steps:
       - name: Checkout the repository
@@ -16,12 +16,7 @@ jobs:
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: "1.5.0"  # Use the latest stable version or your required version
-
-      - name: Set up Azure CLI (to authenticate)
-        uses: azure/azure-cli-action@v1
-        with:
-          azure-cli-version: latest
+          terraform_version: "1.5.0"  # Use the latest stable version or your desired version
 
       - name: Azure Login
         uses: azure/login@v1
