@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest  # GitHub-hosted runner with Ubuntu
 
     permissions:
-      id-token: write  # Grant permission to generate the ID Token for Azure authentication
-      contents: read   # Grant permission to read the repository contents
+      id-token: write  # Allow the GitHub runner to create the OIDC ID token for Azure authentication
+      contents: read   # Allow the GitHub runner to access the repository contents
 
     steps:
       - name: Checkout the repository
@@ -25,7 +25,7 @@ jobs:
       - name: Azure Login using OIDC
         uses: azure/login@v1
         with:
-          # Do NOT provide client-id, client-secret, or tenant-id for OIDC authentication
+          # DO NOT provide client-id, client-secret, or tenant-id here
           enable-AzPSSession: true  # Optional: if you want to enable PowerShell session
 
       - name: Terraform Init
