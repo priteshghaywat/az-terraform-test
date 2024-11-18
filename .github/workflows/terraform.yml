@@ -2,31 +2,31 @@ name: "Terraform Azure Resource Group"
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to main branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use Ubuntu for the runner
 
     steps:
-    # Step 1: Checkout the code
+    # Step 1: Checkout the code from the repository
     - name: Checkout code
       uses: actions/checkout@v3
 
-    # Step 2: Set up Azure Cloud Shell with Terraform
+    # Step 2: Login to Azure using Service Principal (via GitHub Secrets)
     - name: Login to Azure using Cloud Shell
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    # Step 3: Set up Terraform
+    # Step 3: Set up Terraform (configure Terraform version)
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
 
-    # Step 4: Initialize Terraform
+    # Step 4: Initialize Terraform (in the current directory)
     - name: Terraform Init
       run: terraform init
 
-    # Step 5: Apply Terraform Configuration
+    # Step 5: Apply Terraform Configuration (in the current directory)
     - name: Terraform Apply
       run: terraform apply -auto-approve
