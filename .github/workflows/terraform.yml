@@ -27,6 +27,10 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
+    # Step 5: Plan Terraform Configuration (in the current directory)
+    - name: Terraform Plan
+      run: terraform plan      
+
     # Step 5: Apply Terraform Configuration (in the current directory)
     - name: Terraform Apply
       run: terraform apply -auto-approve
