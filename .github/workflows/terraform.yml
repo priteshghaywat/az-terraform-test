@@ -29,6 +29,12 @@ jobs:
       working-directory: ./terraform  # Path to the folder containing your Terraform files
 
     # Step 5: Apply Terraform Configuration (in the terraform/ directory)
-    - name: Terraform Apply
-      run: terraform apply -auto-approve
-      working-directory: ./terraform  # Path to the folder containing your Terraform files
+    #- name: Terraform Apply
+     # run: terraform apply -auto-approve
+      #working-directory: ./terraform  # Path to the folder containing your Terraform files
+   
+    # step 5 :Destroy resources created by terraform
+    
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve
+      working-directory: ./terraform
