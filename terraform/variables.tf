@@ -1,6 +1,6 @@
 variable "resource_group_name" {
   description = "Name of the Azure Resource Group"
-  resource_group_name     = var.resource_group_name
+  default     = "AzureFoundationRG"
 }
 
 variable "location" {
