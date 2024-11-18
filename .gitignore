@@ -36,5 +36,5 @@ Thumbs.db
 *.log
 
 # Ignore backend config till the resource group and storage is created
-backend.tf
+#backend.tf
 #output.tf
