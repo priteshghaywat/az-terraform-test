@@ -34,3 +34,6 @@ Thumbs.db
 
 # Ignore GitHub Actions/CI-related files (e.g., logs, temporary files)
 *.log
+
+# Ignore backend config till the resource group and storage is created
+backend.tf

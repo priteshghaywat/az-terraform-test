@@ -1,2 +1,2 @@
-resource_group_name = "myResourceGroup"
+resource_group_name = "azf-rg-tfstate"
 location            = "East US"

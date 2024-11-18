@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "azf_rg" {
-  name     = "azf-test-rg1-delete"
+  name     = var.resource_group_name
   location = "East US"
 }
  
