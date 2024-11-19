@@ -1,4 +1,6 @@
-resource "azurerm_resource_group" "azf_rg_test1" {
-  name     = var.resource_group_name
-  location = "East US"
+resource "azurerm_virtual_network" "Vnet" {
+  name                = "terraform-practice"
+  location            = var.location
+  resource_group_name = "azf-rg-tfstatexy"
+  address_space       = ["10.0.0.0/16"]
 }

@@ -5,5 +5,5 @@ variable "resource_group_name" {
 
 variable "location" {
   description = "Azure Region"
-  default     = "East US"
+  default     = "Central India"
 }
