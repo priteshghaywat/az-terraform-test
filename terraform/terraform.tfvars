@@ -1,2 +1,2 @@
-resource_group_name = "azf-rg-tfstate"
+resource_group_name = "azf-rg-tfstatexyz"
 location            = "East US"
