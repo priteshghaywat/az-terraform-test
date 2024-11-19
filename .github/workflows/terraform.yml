@@ -14,10 +14,10 @@ jobs:
       uses: actions/checkout@v3
 
     # Step 2: Login to Azure using Service Principal (via GitHub Secrets)
-    #- name: Login to Azure using Cloud Shell
-     # uses: azure/login@v1
-      #with:
-       # creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Login to Azure using Cloud Shell
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Login to Azure using Username and Password
       uses: azure/login@v1
