@@ -19,11 +19,11 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-    - name: Login to Azure using Username and Password
-      uses: azure/login@v1
-      with:
-        username: ${{ secrets.AZURE_USERNAME }}  # Azure username (email address)
-        password: ${{ secrets.AZURE_PASSWORD }}  # Azure password    
+   # - name: Login to Azure using Username and Password
+    #  uses: azure/login@v1
+     # with:
+      #  username: ${{ secrets.AZURE_USERNAME }}  # Azure username (email address)
+       # password: ${{ secrets.AZURE_PASSWORD }}  # Azure password    
 
     # Step 3: Set up Terraform (configure Terraform version)
     - name: Setup Terraform
