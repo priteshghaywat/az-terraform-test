@@ -30,7 +30,7 @@ jobs:
 
      # Step 5: Apply Terraform Configuration (in the terraform/ directory)
     - name: Terraform Apply
-      run: terraform apply -state=$GITHUB_WORKSPACE/terraform/ -auto-approve
+      run: terraform apply -auto-approve
       working-directory: ./terraform  # Path to the folder containing your Terraform files
      
     # step 5 :Destroy resources created by terraform
