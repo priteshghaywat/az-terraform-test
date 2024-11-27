@@ -28,7 +28,9 @@ jobs:
         allow-no-subscriptions: true
 
     # Step 4: Export USE_AZURE_AD environment variable
-    #- name: Set environment variable
+    - name: Set environment variable
+      export ARM_USE_MSI=true
+      export ARM_TENANT_ID="2557041f-ab5b-4b08-806f-27b25d7d69ef"
     #  run: echo "USE_AZURE_AD=true" >> $GITHUB_ENV
     
 
