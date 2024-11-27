@@ -4,6 +4,10 @@ on:
     branches:
       - main  # Trigger on push to main branch
 
+permissions:
+  id-token: write  # Required to fetch an OIDC token
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest  # Use Ubuntu for the runner
