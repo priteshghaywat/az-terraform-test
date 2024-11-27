@@ -21,7 +21,7 @@ jobs:
 
     # Step 4: Export USE_AZURE_AD environment variable
     - name: Set environment variable
-      run: echo "use_azure_ad=true" >> $GITHUB_ENV
+      run: echo "USE_AZURE_AD=true" >> $GITHUB_ENV
     
 
    # - name: Login to Azure using Username and Password
